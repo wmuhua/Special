@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color: #000;
+		}
+		.box{
+			width: 1000px;
+			height: 400px;
+			margin:100px auto;
+			box-shadow:0 0 20px 0 #fff;
+		}
+		ul{
+			display:flex;
+			height:100%;
+			list-style:none;
+			justify-content:space-around;
+			align-items:center;
+		}
+		li{
+			position:relative;
+			width:260px;
+			height: 340px;
+			background-image: linear-gradient(45deg,transparent 25%,#fff 25%,#fff 50%,transparent 50%,transparent 75%,#fff 75%);
+			background-size:20px 20px;
+			animation:go 6s infinite linear;
+		}
+		@keyframes go{
+			0%{background-position-y:0%;}
+			100%{background-position-y:100%;}
+		}
+		li:hover{
+			animation-play-state:paused;
+		}
+		.dv{
+			position:absolute;
+			top:20px;
+			left:20px;
+			width: 220px;
+			height: 300px;
+			overflow:hidden;
+		}
+		.dv1{
+			position:absolute;
+			top:0;
+			left:0;
+			display:flex;
+			align-items:center;
+			width:220px;
+			height:300px;
+			text-indent:2em;
+			text-align:center;
+			background-color: #fff;
+		}
+		.dvs{
+			position:absolute;
+			top:0;
+			width:440px;
+			height:300px;
+		}
+		img{
+			position:absolute;
+			top:0px;
+			width:220px;
+			height:300px;
+			transition:.8s linear;
+		}
+		.dv2{			
+			left:-220px;
+		}
+		.dv2 img{
+			left:220px;
+		}
+		li:hover .dv2 img{
+			left:0px;
+		}
+		li:hover .dv3 img{
+			opacity:0;
+		}
+		.dv4,.dv4 img{
+			left:0px;
+		}
+		li:hover .dv4 img{
+			left:220px;
+		}
+	</style>
+</head>
+<body>
+
+
+
+	<div class="box">
+		<ul>
+			<li>
+				<div class='dv'>
+					<div class = 'dv1'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta illum consequatur nostrum magnam facilis eveniet maiores commodi animi nobis quibusdam et perferendis fugiat deleniti sed molestiae eligendi libero ullam quo?</div>
+					<div class = 'dv2 dvs'>
+						<img src="images/5.jpg" alt="">
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class='dv'>
+					<div class = 'dv1'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta illum consequatur nostrum magnam facilis eveniet maiores commodi animi nobis quibusdam et perferendis fugiat deleniti sed molestiae eligendi libero ullam quo?</div>
+					<div class = 'dv3 dvs'>
+						<img src="images/5.jpg" alt="">
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class='dv'>
+					<div class = 'dv1'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta illum consequatur nostrum magnam facilis eveniet maiores commodi animi nobis quibusdam et perferendis fugiat deleniti sed molestiae eligendi libero ullam quo?</div>
+					<div class = 'dv4 dvs'>
+						<img src="images/5.jpg" alt="">
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
