@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		#box{
+			position:relative;
+			width: 100px;
+			height: 160px;
+			margin:200px auto;
+			animation:go 5s linear infinite;
+			transform-style:preserve-3d;
+		}
+		#box div.aa{
+			position:absolute;
+			left:0;
+			top:0;
+			width: 100px;
+			height: 160px;
+			border:2px solid red;
+			border-left:0;
+			border-bottom:0;
+			border-radius:50% 50% 0/50% 40% 0;
+		}
+		@keyframes go{
+			form{transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg);}
+			to{transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg);}
+		}
+		.box{
+			position:relative;
+			width:80px;
+			height:80px;
+			transform-style:preserve-3d;
+			transform:translateX(10px) translateY(53px) translateZ(40px);
+		}
+		.box div{
+			position:absolute;
+			top:0;
+			left:0;
+			width:80px;
+			height:80px;
+		}
+		.box div img{
+			width:80px;
+			height:80px;
+		}
+		.box div:nth-child(1){
+			top:-80px;
+			transform-origin:bottom;
+			transform:rotateX(90deg);
+		}
+		.box div:nth-child(2){
+			top:80px;
+			transform-origin:top;
+			transform:rotateX(-90deg);
+		}
+		.box div:nth-child(3){
+			left:-80px;
+			transform-origin:right;
+			transform:rotateY(-90deg);
+		}
+		.box div:nth-child(4){
+			left:80px;
+			transform-origin:left;
+			transform:rotateY(90deg);
+		}
+		.box div:nth-child(5){
+		
+		}
+		.box div:nth-child(6){
+			transform:translateZ(-40px);
+		}
+	</style>
+</head>
+<body>
+
+
+	<div id="box">
+		<div class="box">
+			<div><img src="images/5.jpg" alt=""></div>
+			<div><img src="images/6.jpg" alt=""></div>
+			<div><img src="images/7.jpg" alt=""></div>
+			<div><img src="images/8.jpg" alt=""></div>
+			<div><img src="images/9.jpg" alt=""></div>
+			<div><img src="images/10.jpg" alt=""></div>
+		</div>
+	</div>
+
+	<script>
+	
+	
+		var box = document.getElementById('box');
+	
+		for(var i =0;i<36;i++){
+			var oDiv = document.createElement('div');
+			oDiv.className = 'aa';
+			oDiv.style.transform = 'rotateY('+i*10+'deg) rotateZ(45deg) translateX(30px)';
+			box.appendChild(oDiv);
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
