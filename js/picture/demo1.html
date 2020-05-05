@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" onselectstart = 'return false'><!-- 禁止浏览器掉拖动复制功能-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			/*perspective:800px;*/
+			background-color: #000;
+		}
+		.box{
+			position: relative;
+			width: 120px;
+			height: 180px;
+			margin:230px auto;
+			transform-style:preserve-3d;
+			/*transform:perspective(800px) rotateX(-10deg) rotateY();*/
+			transform:perspective(800px) rotateX(-10deg) rotateY(0deg);
+		}
+		.box img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius:5px;
+			box-shadow: 0px 0px 10px #fff;
+			-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5));/*向下倒影   偏移量  渐变*/
+			transition:1s;
+		}
+		.box p{
+			position: absolute;
+			left:50%;
+			top:100%;
+			margin-top:-600px;
+			margin-left:-600px;
+			width: 1200px;
+			height: 1200px;
+			background:-webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+			transform:rotateX(90deg);
+			border-radius:600px;			
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<img src="images/7.jpg" alt="">
+		<img src="images/8.jpg" alt="">
+		<img src="images/9.jpg" alt="">
+		<img src="images/10.jpg" alt="">
+		<img src="images/11.jpg" alt="">
+		<p></p>
+	</div>
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function(){
+			var imgl = $('.box img').size();
+			var deg = 360/imgl,i=0;
+			var roy = 0,rox=-10,xx=0,yy=0,timer = null,times = null;
+
+			times =setInterval(function(){
+				i++;
+				i%=imgl;
+				if(i==0){
+					clearInterval(times);
+					times = null;
+					console.log(1);
+				}
+				$('.box img').eq(i).css({
+					'transform':'rotateY('+i*deg+'deg) translateZ(350px)'
+				});
+			},100);
+
+			$('.box img').each(function(i){
+				// $(this).ondragstart = 'return false';//jquery对象变成js对象 禁止浏览器图片拖拽功能    比如拖到新窗口
+				$(this).attr('ondragstart','return false');
+			});
+			$(document).mousedown(function(ev){
+					var x0 = ev.clientX;//按下鼠标时的值
+					var y0 = ev.clientY;
+					clearInterval(timer);//避免惯性还没有执行完再次拖动时 产生多个定时器
+				$(this).bind('mousemove',function(ev){//绑定事件
+					var x = ev.clientX;//鼠标当前的位置
+					var y = ev.clientY;//当前点的坐标
+
+					xx = x-x0;
+					yy = y-y0;
+					// roy+=xx;//距离值成了度数值
+					roy+=xx*0.1;
+					rox-=yy*0.1;
+					//$('body').append('<div style="width:5px;height:5px;background-color:#f00;position:absolute;top:'+y+'px;left:'+x+'px;"></div>');
+					$('div.box').css({
+						'transform':'perspective(800px) rotateX('+rox+'deg) rotateY('+roy+'deg)'
+					});
+					x0 = ev.clientX;//前一点的坐标
+					y0 = ev.clientY;
+				});
+			}).mouseup(function(){
+				// $(this).mousemove(function(){}); 也可以  但是事件在这里 且没东西 会影响性能
+				$(this).unbind('mousemove');//解绑事件
+				// 最后的惯性停止
+				timer = setInterval(function(){
+					xx*=0.95;//无限接近于0  但永远不会等于0
+					yy*=0.95;
+					if(Math.abs(xx)<1 && Math.abs(yy)<1){//往左往上是负数本来就小于1
+						clearInterval(timer);
+						timer = null;
+					}
+					roy+=xx*0.2;
+					rox-=yy*0.1;
+					$('div.box').css({
+						'transform':'perspective(800px) rotateX('+rox+'deg) rotateY('+roy+'deg)'
+					});
+				},30);
+			})
+		})
+	</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
