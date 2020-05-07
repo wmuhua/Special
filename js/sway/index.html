@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		text-align:center;
+	}
+	#box {		
+		margin:0 auto;
+		width:300px;
+		height:300px;
+		text-align:center;
+		line-height:300px;
+		font-size:50px;
+		border-bottom:2px solid pink;
+		color:red;
+		background-image:url(timg1.jpg);
+		background-size:cover;
+	}
+	input{
+		width:150px;
+		height:40px;
+		font-size:18px;
+		margin-top:20px;
+		color:yellow;
+		text-shadow:2px 2px 2px red;
+		font-weight:550;
+	}
+	.head{
+		display:block;
+		margin:0 auto;
+		margin-top:100px;
+		width:300px;
+		height:80px;
+		background-image:url(timg2.jpg);
+		background-size:300px 80px;
+		color:blue;
+		font-size:30px;
+		font-weight:bold;
+	}
+
+	</style>
+</head>
+<body>
+	
+	<div style='position:absolute;left:200px;top:200px;z-index:-1;'>
+		<p>实现效果:点击左按钮时</p>
+		<p>不断改变div里的内容,点右按钮时停止</p>
+		<p>实现类似抽奖效果</p>
+	</div>
+
+
+
+
+
+
+	<span class='head'></span>
+	<div id = 'box'></div>
+	<input type="button" value = '早餐吃什么' id = 'start'>
+	<input type="button" value = '就吃这个吧' id = 'stop'>
+
+	<script text = "text/javascript" src = "suiji.js"></script>
+</body>
+</html>
