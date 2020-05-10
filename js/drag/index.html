@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	#a1{
+		width:315px;
+		height:10px;
+		background-color: #ccc;
+		margin:100px;
+		position:relative;
+	}
+	#a2{
+		width:20px;
+		height:30px;
+		background-color: #f00;
+		position:absolute;
+		top:-10px;
+		left:0;
+		cursor:pointer;
+	}
+	#a3{
+		width:0px;
+		height:100%;
+		background-color: #f00;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+  </style>
+ </head>
+ <body>
+	<div id = 'a1'>
+		<div id = 'a2'></div>
+		<div id = 'a3'></div>
+	</div>
+	<div id = 'a4'>当前位置：0%</div>
+	<div id = 'a5'>移动了：0 px</div>
+
+
+	<script>
+		
+	
+		function $(id){return document.getElementById(id);}
+
+		$('a2').onmousedown = function(e){
+
+			var e = window.event || event;
+			var x = e.clientX-this.offsetLeft;
+			var that = this;
+
+			document.onmousemove = function(e){
+				
+				var e = window.event || event;
+
+				that.style.left = e.clientX-x+'px';
+				
+				//去掉单位和0对比
+				var aa = parseInt(that.style.left);
+				//最大值
+				var bb = $('a1').offsetWidth - $('a2').offsetWidth;
+				//移动的距离
+				var cc = e.clientX-$('a1').offsetLeft;
+
+				if(aa<0){
+					that.style.left = 0;
+					cc = 0;
+				}else if(aa>bb){
+					that.style.left = bb+'px';
+					cc = bb;
+				}
+
+				$('a3').style.width = that.style.left;
+												//去掉小数（去掉单位)
+				$('a4').innerHTML = '当前位置：'+parseInt(parseInt(that.style.left)/bb*100)+'%';
+				$('a5').innerHTML = '移动了：'+cc+' px';
+			
+				window.getSelection ? (window.getSelection().removeAllRanges()):(document.selection.empty());
+			
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	
+	
+	
+	
+	</script>
+
+
+ </body>
+</html>
