@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		#div1 {
+			width:200px;
+			height:200px;
+			background-color:#0ff;
+			position:relative;
+		}
+		#div2 {
+			width:50px;
+			height:50px;
+			background-color:#ff0;
+			position:absolute;
+			right:0;
+			bottom:0;
+		}
+		#aa{
+			position:absolute;
+			top:0;left:150px;
+			z-index:-1;
+		}
+		#bb{
+			position:absolute;
+			top:0;left:760px;
+			z-index:-1;
+		}
+	</style>
+</head>
+<body>
+	<img src="1.png" alt="" id='bb'>
+	<img src="2.jpg" alt="" id='aa'>
+	<div id="div1">
+		<div id = "div2"></div>
+	</div>
+	<script src="script1.js"></script>
+</body>
+</html>
