@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{height:2000px;}
+	#a1{
+		width: 300px;
+		height: 300px;
+		margin:100px;
+		position:relative;
+	}
+	#a4{
+		width:350px;
+		height: 350px;
+		position:absolute;
+		left:310px;
+		top:0;
+		overflow:hidden;
+		display:none;
+	}
+	#a2{
+		position:relative;
+	}
+	#a3{
+		width: 100px;
+		height: 100px;
+		background: rgba(250,250,0,.4);
+		position:absolute;
+		top:0;
+		left:0;
+		cursor:move;
+		display:none;
+	}
+	#a5{
+		position:absolute;
+		top:0;
+		left:0;
+	}
+  </style>
+ </head>
+ <body>
+
+
+	<div id = 'a1'>
+		<div id = 'a2'>
+			<img src="images/4c.jpg" alt="">
+			<div id = 'a3'></div>
+		</div>
+		<div id = 'a4'>
+			<img src="images/4a.jpg" alt="" id = 'a5'>
+		</div>
+	</div>
+
+
+
+
+	<div style='position:absolute;right:20px;top:100px;'>
+		第零步：记清楚这个案例的html布局和CSS，比JS代码重要<br>
+		第一步：鼠标移入黄色小方块的父级元素时，小方块和右侧图片父级div显示  鼠标移出隐藏<br>
+		第二步：移入时小方块的中心始终是鼠标位置，并控制小方块移动范围<br>
+		第三步：移动小方块时，改变右侧图片定位的位置<br>
+		第四步：当滚动条下拉一部分时(图片只显示一半在页面上的状态)，移入也能正常看到效果<br>
+		实现效果后，有空可以按自己理解的或觉得更简单的html布局试试，看效果的区别
+	</div>
+
+
+
+	
+	<script src='aa.js'></script>
+
+
+
+
+ </body>
+</html>
