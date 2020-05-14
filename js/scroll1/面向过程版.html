@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+		<style>
+			*{margin:0;padding:0;}
+			#dv1{width:600px;height:150px;
+				background: #f0f;
+				margin:100px auto;
+				overflow:hidden;}
+			#dv2{width:1200px;}
+			img{float:left;padding:10px;
+				width:130px;height:130px;}
+</style></head><body>
+	<div  id="dv1">
+		<div id="dv2">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+			<img src="images/5.jpg" alt="">
+		</div>
+	</div>						 <!-- JS面向过程版完美无缝滚动 布置的图片至少要比显示的图片多一张-->
+<script>
+	var dv2 = document.getElementById('dv2'),	//获取ID
+		imgs = dv2.getElementsByTagName('img'),	//获取所有img标签
+		index = 0;								//定义一个变量
+	setInterval(function(){						//定时器 这里设置的时间为每10ms自动执行一次
+		index--;								//自动改变定义的变量的值
+		dv2.style.marginLeft = index + 'px';	//改变margin-left值 开始滚动
+		if(Math.abs(index)>= 150){//如果 ( Math.abs把负的index改为正数  >= 一张图片的宽度加内边距20 )
+			dv2.appendChild(dv2.firstElementChild);//把第一张图片位置放到最后
+			dv2.style.marginLeft = 0+'px';		//margin-left值归为0
+			index = 0;							//index值归为0
+		}
+	},10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

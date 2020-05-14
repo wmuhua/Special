@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+		<style>
+			*{margin:0;padding:0;}
+			#dv1{width:600px;height:150px;
+				background: #f0f;
+				margin:100px auto;
+				overflow:hidden;}
+			#dv2{width:1200px;}
+			img{float:left;padding:10px;
+				width:130px;height:130px;}
+</style></head><body>
+	<div  id="dv1">
+		<div id="dv2">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+			<img src="images/5.jpg" alt="">
+		</div>
+	</div>			<!-- JS面向对象版完美无缝滚动  HTML和CSS部分和面向过程的完全一样-->
+<script>						
+	function fn(aa){
+		this.dv2 = document.getElementById(aa.id);//获取传入的参数ID
+		this.img = this.dv2.getElementsByTagName('img');
+		this.speed = aa.speed;//获取传入的参数速度
+		this.index = 0;//定义一个变量为运动初始值
+		this.init();//效果开始
+	}
+	fn.prototype ={
+		init:function(){//效果开始
+			var that = this;//保存this指向
+			setInterval(function(){//定时器内容和面向过程的完全相同
+				that.index--;
+				that.dv2.style.marginLeft = that.index + 'px';
+				if(Math.abs(that.index)>= 150){
+					that.dv2.appendChild(that.dv2.firstElementChild);
+					that.dv2.style.marginLeft = '0px';
+					that.index = 0;
+				}
+			},this.speed);
+		}
+	}
+	new fn({//传入属性
+		id:'dv2',		//id
+		speed:10		//定时器速度
+	});
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+
+
+
+
+	</body>
+</html>

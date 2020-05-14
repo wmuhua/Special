@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="EditPlus®">
+		<meta name="Author" content="">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>Document</title>
+<style>
+	*{margin:0;padding:0;}
+	.dv1{
+		position:relative;
+		width:600px;height:150px;
+		background: #f0f;
+		margin:100px auto;
+		overflow:hidden;}
+	.dv2{
+		position:absolute;top:0;left:0;
+		width:1200px;
+		animation:go 10s linear infinite;}
+	img{
+		width:130px;height:130px;
+		float:left;
+		padding:10px;}
+	.dv2:hover{animation-play-state:paused;}
+	@keyframes go{
+		form{left:0;}
+		to{left:-600px;}}/*一半*/
+
+	</style></head><body> <!--纯CSS版完美无缝滚动 关键在于要显示n张图片 就需要布置n*2张图片-->
+
+	<div class="dv1">
+		<div class="dv2">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+			<img src="images/1.jpg" alt="">
+			<img src="images/2.jpg" alt="">
+			<img src="images/3.jpg" alt="">
+			<img src="images/4.jpg" alt="">
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>
