@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			padding:50px 0 0 50px;
+		}
+		#box{
+			width: 600px;
+			height: 400px;
+			position: relative;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+		}
+		ul li{
+			list-style:none;
+			width: 600px;
+			height: 400px;
+			position: absolute;
+			top:0;
+			left:0;
+			display: none;
+		}
+		ul li:nth-child(1){
+			display: block;
+		}
+		ol{
+			list-style:none;
+			padding:5px 15px;
+			border-radius:20px;
+			background-color: rgba(0,0,0,.5);
+			position: absolute;
+			bottom:15px;
+			left:50%;
+			margin-left:-80px;
+		}
+		ol li{
+			float:left;
+			width: 10px;
+			height: 10px;
+			border:1px solid #fff;
+			border-radius:50%;
+			cursor:pointer;
+		}
+		ol li~li{
+			margin-left:10px;
+		}
+		#box div{
+			width: 30px;
+			height: 50px;
+			background-color: rgba(0,0,0,.4);
+			border-radius:5px;
+			color:#fff;
+			text-align:center;
+			line-height:50px;
+			font-size:30px;
+			position: absolute;
+			top:175px;
+			cursor:pointer;
+		}
+		#box div:hover{
+			background-color:rgba(0,0,0,.6);
+		}
+		#lt{
+			left:3px;
+		}
+		#gt{
+			right:3px;
+		}
+		.aa{
+			background-color: #f00;
+			box-shadow:0 0 3px 2px #fff;
+		}
+		#txt{
+			width: 500px;
+			position: absolute;
+			top:0px;
+			left:680px;
+			border-left:3px solid red;
+			padding:50px 0 0 25px;
+			height: 800px;
+		}
+		#txt button{
+			width: 100px;
+			height: 30px;
+			margin-bottom: 20px;
+			font-weight:bold;
+		}
+	</style>
+
+	
+	<link rel="stylesheet" href="css/main.css">
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+
+</head>
+<body>
+	<div id="box">
+		<ul id='uls'>
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+			<li><img src="images/6.jpg" alt=""></li>
+			<li><img src="images/7.jpg" alt=""></li>
+		</ul>
+		<ol id='ols'>
+			<li class="aa"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<div id="lt">&lt;</div>
+		<div id="gt">&gt;</div>
+	</div>
+
+
+
+
+
+	<div id="txt">
+		<button>上一步</button>
+		<button>下一步</button>
+		<p></p>
+	</div>
+
+	<script>
+		function $(id){return document.getElementById(id);}
+		var box=$('box'),lt=$('lt'),gt=$('gt');
+		var lis=$('uls').children,sli=$('ols').children;
+		var aa=0,timer=null;
+		box.onmouseover = function(){
+			clearInterval(timer);
+			timer = null;
+			for(var i = 0;i<sli.length;i++){
+				sli[i].index = i;
+				sli[i].onmouseover = function(){
+					for(var j = 0;j<sli.length;j++){
+						lis[j].style.display = 'none';
+						sli[j].className = '';
+					}
+					lis[this.index].style.display = 'block';
+					sli[this.index].className = 'aa';
+					aa = this.index;
+				}
+			}
+		}
+		box.onmouseout = function(){
+			timer = setInterval(fn,1500);
+		}
+		function fn(){
+			for(var i = 0;i<lis.length;i++){
+				lis[i].style.display = 'none';
+				sli[i].className = '';
+			}
+			if(this.id === 'lt'){
+				aa--;
+				aa = aa<0?aa=lis.length-1:aa;
+			}else{
+				aa++;
+				aa=aa>lis.length-1?aa=0:aa;
+			}
+			lis[aa].style.display = 'block';
+			sli[aa].className = 'aa';
+		}
+		timer =setInterval(fn,1500);
+		gt.onclick = fn;
+		lt.onclick = fn;
+
+		var cs=$('txt').children,bb=0;
+		var arr=[
+			"第一步：<br>写一个函数fn，遍历图片列表隐藏和小圆点类名为空，定义一个变量，变量对应的图片和小圆点class名切换，写一个定时器，每隔一段时间调用这个函数，就可以实现轮播的效果"
+			,'第二步：<br>鼠标移入div的时候停止定时器onmouseover，鼠标移出启动定时器onmouseout'
+			,'第三步：<br>左侧按钮添加点击事件函数，点击时切换图片和小圆点至上一个，右侧按钮点击事件直接执行fn'
+			,'第四步：<br>遍历小圆点，鼠标移入小圆点onmouseover,遍历图片列表隐藏和小圆点类名为空，当前移入的小圆点给类名和对应的图片显示即可。<br>(闭包传值进去获得当前值是第几个或者为每个小圆点添加自定义属性，获取当前是第几个)'
+			,'第五步：<br>把直接显示隐藏效果改为过渡效果，慢慢显示，慢慢隐藏，提示用transition，注意：transition对display:none/block无效'
+			,'第六步：<br>恭喜你实现了红线左边全部效果<br>现在开始实现红线右边全部效果'
+		];
+		cs[2].innerHTML = arr[0];
+		cs[0].disabled=true;
+		cs[0].onclick = function(){
+			bb--;
+			bb=bb<0?bb=0:bb;
+			if(bb==0){this.disabled=true;}
+			else{this.disabled=false;cs[1].disabled=false;}
+			cs[2].innerHTML = arr[bb];
+		}
+		cs[1].onclick = function(){
+			bb++;
+			bb=bb>arr.length-1?bb=arr.length-1:bb;
+			if(bb==arr.length-1){this.disabled=true;}
+			else{this.disabled=false;cs[0].disabled=false;}
+			cs[2].innerHTML = arr[bb];
+		}
+
+	</script>
+</body>
+</html>
