@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		.box{
+			width:350px;
+			height:250px;
+			border:1px solid #ccc;
+			margin:100px auto;
+		}
+		.dt{
+			padding-left:10px;
+			line-height:35px;
+			font-weight:bold;
+			color:#036;
+		}
+		.dd_t{
+			overflow:hidden;
+		}
+		.dd{
+			padding:10px;
+		}
+		.icon{
+			width:50px;
+			height:50px;
+			float:left;
+			background: url(images/astroIcon.png) no-repeat;
+		}
+		.yunshi{
+			position:relative;
+			display:inline-block;
+			width:80px;
+			height:16px;
+			background: url(images/icon_star.gif);
+		}
+		.star{
+			position:absolute;
+			top:0;
+			left:0;
+			width:80px;
+			height:16px;
+			background: url(images/icon_star.gif) left bottom;/*靠右下角对齐*/
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<div class="dt">星座运势</div>
+		<div class="dd">
+			<div class="dd_t">
+				<div class="icon"></div>
+				<div class="rg">
+					<select name="" id="sele">
+						<option value="0">白羊座(03.21-04.19)</option>
+						<option value="1">金牛座(04.20-05.20)</option>
+						<option value="2">双子座(05.21-06.21)</option>
+						<option value="3">巨蟹座(06.22-07.22)</option>
+					</select>
+					<div>今日运势:<span class='yunshi'><span class='star'></span></span></div>
+				</div>
+			</div>
+			<div class="dd_b">
+				这几天财运都很强,但是危机总在不知不觉中发生了,例如:因为太过乐观而误判情势,导致投...<a href="#">[详细]</a>;
+			</div>	
+		</div>
+	</div>
+
+
+
+	<div style='width:420px;margin:50px auto;'>
+		<p>一个onchange事件，改变今日运势、星座图标、运势说明</p>
+	</div>
+
+
+
+	<script src='aa.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
