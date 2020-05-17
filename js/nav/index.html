@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color: #000;
+		}
+		.nav{
+			width:800px;
+			height:40px;
+			/*background-color: #fff;*/
+			background: url(images/rss.png) no-repeat right center #fff;
+			margin:100px auto 10px;
+			border-radius:5px;
+			position:relative;
+		}
+		#cloud{
+			width:85px;
+			height: 40px;
+			position: absolute;
+			top:0;
+			left:0;
+			background: url(images/cloud.gif) no-repeat;
+		}
+		ul{
+			list-style:none;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		ul li{
+			float:left;
+			width:85px;
+			height: 40px;
+			line-height:40px;
+			text-align:center;
+			color:#000;
+			font-size:14px;
+			cursor:pointer; 
+		}
+		ol{
+			list-style:none;
+			width:800px;
+			height:500px;
+			overflow:hidden;
+			margin:auto;
+		}
+		ol li{
+			width:800px;
+			height:500px;
+			text-align:center;
+			line-height:500px;
+			font-size:100px;
+			color:#fff;
+		}
+		ol li:nth-child(1){background-color: #fff;color:#000;}
+		ol li:nth-child(2){background-color: #f00;}
+		ol li:nth-child(3){background-color: #0f0;}
+		ol li:nth-child(4){background-color: #00f;}
+		ol li:nth-child(5){background-color: #ff0;}
+		ol li:nth-child(6){background-color: #f0f;}
+		ol li:nth-child(7){background-color: #0ff;}
+		ol li:nth-child(8){background-color: #f87cdf;}
+	</style>
+</head>
+<body>
+	<div class = 'nav' id = 'nav'>
+		<span id="cloud"></span>
+		<ul>
+			<li>首页新闻</li>
+			<li>师资力量</li>
+			<li>活动策划</li>
+			<li>企业文化</li>
+			<li>招聘信息</li>
+			<li>公司简介</li>
+			<li>北京校区</li>
+			<li>广州校区</li>
+		</ul>
+	</div>
+		<ol id = 'ols'>
+			<li>首页新闻</li>
+			<li>师资力量</li>
+			<li>活动策划</li>
+			<li>企业文化</li>
+			<li>招聘信息</li>
+			<li>公司简介</li>
+			<li>北京校区</li>
+			<li>广州校区</li>
+		</ol>
+
+	<script src='aa.js'></script>
+</body>
+</html>
+
