@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#nav{
+			position:relative;
+			list-style:none;
+			width: 800px;
+			height: 160px;
+			margin:100px auto;
+			perspective:1000px;
+		}
+		li{
+			position:absolute;
+			width: 150px;
+			height: 150px;
+			border:5px solid #66739b;
+			transition:.5s;
+		}
+		img{
+			width: 150px;
+			height: 150px;
+		}
+		.tab1{
+			transform:translateX(46px);
+			z-index:-1;
+		}
+		.tab3{
+			transform:translateX(320px) translateZ(120px);
+		}
+		.tab2{
+			transform:translateX(160px) translateZ(120px) rotateY(-45deg);
+			transform-origin:right;/**/
+		}
+		.tab4{
+			transform:translateX(480px) translateZ(120px) rotateY(45deg);
+			transform-origin:left;
+		}
+		.tab5{
+			transform:translateX(594px);
+			z-index:-1;
+		}
+	</style>
+</head>
+<body>
+
+
+	<ul id="nav">
+		<li class="tab1"><img src="images/5.jpg" alt=""></li>
+		<li class="tab2"><img src="images/6.jpg" alt=""></li>
+		<li class="tab3"><img src="images/8.jpg" alt=""></li>
+		<li class="tab4"><img src="images/9.jpg" alt=""></li>
+		<li class="tab5"><img src="images/7.jpg" alt=""></li>
+	</ul>		
+
+	<script src='aa.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
