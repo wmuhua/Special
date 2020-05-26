@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" onselectstart = 'return false'><!-- 禁止浏览器掉拖动复制功能-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			/*perspective:800px;*/
+			background-color: #000;
+		}
+		.box{
+			position: relative;
+			width: 120px;
+			height: 80px;
+			margin:400px auto;
+			transform-style:preserve-3d;
+			/*transform:perspective(800px) rotateX(-10deg) rotateY();*/
+			transform:perspective(800px) rotateX(-10deg) rotateY(0deg);
+		}
+		.box>img{
+			position: absolute;
+			top:0;left:0;
+			width: 100%;
+			height: 100%;
+			border-radius:5px;
+			box-shadow: 0px 0px 10px #fff;
+			-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5));/*向下倒影   偏移量  渐变*/
+			transition:1.5s;
+		}
+		.box>p{
+			position: absolute;
+			left:50%;
+			top:100%;
+			margin-top:-600px;
+			margin-left:-600px;
+			width: 1200px;
+			height: 1200px;
+			background:-webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+			transform:rotateX(90deg);
+			border-radius:600px;			
+		}
+		.box>div{
+			position: absolute;
+			top:-230px;
+			left:-40px;
+			width: 200px;
+			height: 300px;
+			z-index: -3;
+			overflow: hidden;
+			border-radius:10px;
+			/*box-shadow: 0px 0px 10px #fff;*/
+			/*-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5));/*向下倒影   偏移量  渐变*/*/
+		}
+		ul{
+			list-style: none;
+			position:absolute;
+			top:0;
+			left:0;
+			width: 200px;
+			height: 600px;
+			z-index: -2;
+		}
+		li{
+			position:absolute;
+			left:0;top:300px;
+			width: 200px;
+			height: 300px;		
+			opacity:0;
+			transition:1.2s;
+			z-index:-1;
+		}
+		li>img{
+			position: absolute;
+			top:0;left:0;
+			width: 100%;
+			height: 100%;
+			border-radius: 10px;
+		}
+		.box>div>ul>li:nth-child(1){
+			opacity:1;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<img src="images/7.jpg" alt="">
+		<img src="images/8.jpg" alt="">
+		<img src="images/9.jpg" alt="">
+		<img src="images/10.jpg" alt="">
+		<img src="images/11.jpg" alt="">
+		<p></p>
+		<div>
+			<ul>
+				<li><img src="images/1.jpg" alt=""></li>
+				<li><img src="images/2.jpg" alt=""></li>
+				<li><img src="images/3.jpg" alt=""></li>
+				<li><img src="images/4.jpg" alt=""></li>
+				<li><img src="images/5.jpg" alt=""></li>
+				<li><img src="images/6.jpg" alt=""></li>
+				<li><img src="images/7.jpg" alt=""></li>
+				<li><img src="images/8.jpg" alt=""></li>
+				<li><img src="images/9.jpg" alt=""></li>
+				<li><img src="images/10.jpg" alt=""></li>
+				<li><img src="images/11.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		
+		(function(){
+			var imgs = document.querySelectorAll('.box>img');
+			var lis = document.querySelectorAll('.box>div>ul>li');
+			var dv = document.querySelector('.box>div');
+			var deg = 360/imgs.length,bb = 0,cc=0,times = null;
+
+			times =setInterval(function(){
+				for(var i = 0;i<imgs.length;i++){
+					imgs[i].style.transform = 'rotateY('+i*deg+'deg) translateZ(350px)';
+					imgs[i].setAttribute('ondragstart','return false');
+					lis[i].style.top = 0;
+				}
+				clearInterval(times);
+				times = null;
+				fn();
+			},10);
+
+			function fn(){
+				for(var i = 0;i<imgs.length;i++){
+					imgs[i].style.transform = 'rotateY('+(i*deg+(bb*deg))+'deg) translateZ(350px)';
+					lis[i].style.opacity = 0;
+				}				
+				cc = cc<0?cc = lis.length-1:cc;
+				lis[cc].style.opacity = 1;
+				bb++;cc--;
+			}
+			setInterval(fn,2500);
+			
+		})();
+	
+	</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
