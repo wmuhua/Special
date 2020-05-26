@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" onselectstart = 'return false'><!-- 禁止浏览器掉拖动复制功能-->
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			/*perspective:800px;*/
+			background-color: #000;
+			overflow-x:hidden;
+			overflow-y:hidden;
+		}
+		.box{
+			position: relative;
+			width: 120px;
+			height: 80px;
+			margin:350px auto;
+			transform-style:preserve-3d;
+			/*transform:perspective(800px) rotateX(-10deg) rotateY();*/
+			transform:perspective(800px) rotateX(-10deg) rotateY(0deg);
+		}
+		.box>img{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			border-radius:5px;
+			box-shadow: 0px 0px 10px #fff;
+			-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.5));/*向下倒影   偏移量  渐变*/
+			transition:1s;k
+		}
+		.box p{
+			position: absolute;
+			left:50%;
+			top:100%;
+			margin-top:-600px;
+			margin-left:-600px;
+			width: 1200px;
+			height: 1200px;
+			background:-webkit-radial-gradient(center center,600px 600px,rgba(255,255,255,.5),rgba(0,0,0,0));
+			transform:rotateX(90deg);
+			border-radius:600px;			
+		}
+		.box div{
+			position: absolute;
+			top:-230px;
+			left:-40px;
+			width: 200px;
+			height: 300px;
+			border-radius:10px;
+			overflow:hidden;
+			z-index: -3;
+		}
+		ul{
+			position: absolute;
+			top:0;left:0;
+			width: 200px;
+			height: 600px;
+			list-style: none;
+			z-index: -2;
+		}
+		ul li{
+			position: absolute;
+			top:300px;left:0;
+			width: 200px;
+			height: 300px;
+			transition:1s;
+			z-index:-1;
+			opacity:0;
+		}
+		li>img{			
+			/*opacity:0;*/
+			width: 200px;
+			height: 300px;
+			border-radius:10px;
+		}
+		li:nth-child(1){
+			opacity:1;
+		}
+		#box{
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			top:0;left:0;
+			z-index:999;
+		}
+		#box img{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+		}
+		#bubble{
+			display: block;
+			position: absolute;
+			top:0;left:0;
+			transform:translateZ(401px);
+			z-index: 1000;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<img src="images/7.jpg" alt="">
+		<img src="images/8.jpg" alt="">
+		<img src="images/9.jpg" alt="">
+		<img src="images/10.jpg" alt="">
+		<img src="images/11.jpg" alt="">
+		<p></p>
+		<div>
+			<ul>
+				<li><img src="images/1.jpg" alt=""></li>
+				<li><img src="images/2.jpg" alt=""></li>
+				<li><img src="images/3.jpg" alt=""></li>
+				<li><img src="images/4.jpg" alt=""></li>
+				<li><img src="images/5.jpg" alt=""></li>
+				<li><img src="images/6.jpg" alt=""></li>
+				<li><img src="images/7.jpg" alt=""></li>
+				<li><img src="images/8.jpg" alt=""></li>
+				<li><img src="images/9.jpg" alt=""></li>
+				<li><img src="images/10.jpg" alt=""></li>
+				<li><img src="images/11.jpg" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<div id="box"></div>
+	<canvas id="bubble"></canvas>
+	<script>
+		window.onload = function(){
+
+			var imgs = document.querySelectorAll('.box>img');
+			var lis = document.querySelectorAll('.box>div>ul>li');
+			var deg = 360/imgs.length,i=0,aa = 0,bb = 0;
+
+			for(var i = 0;i<imgs.length;i++){
+				imgs[i].style.transform = 'rotateY('+i*deg+'deg) translateZ(400px)';
+				imgs[i].setAttribute('ondragstart','return false');
+				lis[i].style.top = 0;
+			}
+			function fn(){
+				for(var i = 0;i<imgs.length;i++){
+					imgs[i].style.transform = 'rotateY('+(i*deg+(aa*deg))+'deg) translateZ(400px) rotateX(3deg)';
+					lis[i].style.opacity = 0;
+				}
+				bb=bb<0?bb=lis.length-1:bb;
+				lis[bb].style.opacity = 1;
+				aa++;bb--;
+			}
+			fn();
+			setInterval(fn,2500);
+
+			var canvas = document.getElementById('bubble');
+			// var w = window.innerWidth;
+			// var h = window.innerHeight;
+			// canvas.width = w;
+			// canvas.height = h;
+			// window.onresize = function(){//当浏览器窗口大小发生改变时动态获取可视窗口窗高赋值给画布
+			// 	w = window.innerWidth;
+			// 	h = window.innerHeight;
+			// 	canvas.width = w;
+			// 	canvas.height = h;
+			// }
+			var w,h;
+			var aColor = ['#f00','#0f0','#00f','#ff0','#f0f','#0ff'];
+			var aBubble = [];//存放小球
+			~~function setSize(){//~~立即执行函数 和(function(){})()一样
+				window.onresize = arguments.callee;
+				w = window.innerWidth;
+				h = window.innerHeight;
+				canvas.width = w;
+				canvas.height = h;
+			}();
+			var ctx = canvas.getContext('2d');
+
+			// ctx.fillStyle = 'red';
+			// ctx.arc(233,200,50,0,2*Math.PI);
+			// ctx.fill();
+
+			// var y = 100,x = 100;
+			// setInterval(function(){
+			// 	ctx.beginPath();
+			// 	ctx.clearRect(0,0,w,h);
+			// 	ctx.fillStyle = 'red';
+			// 	ctx.arc(x++,y++,50,0,2*Math.PI);
+			// 	ctx.fill();
+			// },1000/60)
+
+			function random(min,max){
+				return Math.random()*(max-min)+min;
+			};
+			function Bubble(){};
+			Bubble.prototype ={
+				init:function(){
+					this.x = random(0,w);//圆心坐标
+					// this.y = random(0,h);
+					this.y = 0;
+					this.r = random(1,5);//半径
+					// this.color = aColor[Math.floor(random(0,6))];
+					this.color = '#fff';
+					this.mx = random(-2,2);//移动随机
+					// this.my = random(-1,1);//都是正数的话会全都往一个方向跑
+					this.my = 5;
+				},
+				draw:function(){
+					ctx.beginPath();					
+					ctx.fillStyle = this.color;
+					ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
+					ctx.fill();
+				},
+				move:function(){
+					this.x += this.mx; //不随机就在这里给固定值mx my也也就可以不用给了
+					this.y += this.my;
+					// if(this.x-this.r<0 || this.x+this.r>w){//碰撞反弹
+					// 	this.mx = -this.mx;
+					// }
+					// if(this.y-this.r<0 || this.y+this.r>w){
+					// 	this.my = -this.my;
+					// }
+					this.draw();
+				}
+			};
+			// function create(num){
+			// 	for(var i = 0;i<num;i++){
+			// 		var bubble = new Bubble();
+			// 		bubble.init();
+			// 		bubble.draw();
+			// 		aBubble.push(bubble);//新生成的全部放到数组里,遍历数组就能找到
+			// 	}
+			// };
+			// create(200);
+			setInterval(function(){
+				ctx.clearRect(0,0,w,h);
+				var bubble = new Bubble();
+					bubble.init();
+					bubble.draw();
+					aBubble.push(bubble);//新生成的全部放到数组里,遍历数组就能找到
+				for(var item of aBubble){//for in得到的是下标
+					// console.log(item);//小球的全部属性
+					item.move();
+				}
+			},1000/30)
+		}
+	</script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function(){
+
+			var index = -1;
+			var aColor = ['#0ff','#f00','#0f0','#00f','#f0f'];
+			$(document).mousedown(function(){
+				$(this).bind('mousemove',function(e){
+					var x = e.clientX;
+					var y = e.clientY;
+					index++;
+					// index%=5;
+					var r = Math.floor(index/5);
+					r%=5;
+					// (Math.floor(Math.random()*5))
+					// $('body').append('<img src="img/'+r+'.png" ondragstart="return false" style="top:'+(y-25)+'px;left:'+(x-25)+'px;"/>');
+
+
+					// var $img = $('<div style="width:30px;height:30px;box-shadow:0 0 5px 6px '+aColor[r]+';border-radius:50%;position:absolute;top:'+(y-15)+'px;left:'+(x-15)+'px;"></div>');
+					var $img = $('<img src="images/'+r+'.png" ondragstart="return false" style="top:'+(y-25)+'px;left:'+(x-25)+'px;"/>');
+
+
+					$('#box').append($img);
+					$img.animate({
+						top:(y-225)+'px',
+						width:0,
+						height:0
+					},1200,function(){
+						$(this).remove();
+					});
+				})
+			}).mouseup(function(){
+				$(this).unbind('mousemove');
+			})
+
+
+
+		})
+	</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
