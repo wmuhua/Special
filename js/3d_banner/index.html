@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style id='css'>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.banner{
+			position:relative;
+			width:800px;
+			height:360px;
+			margin:80px auto 50px;
+			perspective:800px;
+		}
+		.box{
+			width:800px;
+			height:360px;
+		}
+		.box ul li{
+			position:relative;
+			list-style:none;
+			height:360px;
+			float:left;
+			transform-style:preserve-3d;
+			transform:translateZ(-180px);
+		}
+		.box ul li span{
+			position:absolute;
+			display:block;
+			height:360px;
+		}
+		.box ul li span:nth-child(1){
+			top:-360px;
+			background-image: url(images/1.png);
+			transform-origin:bottom;
+			transform:translateZ(180px) rotateX(90deg);
+		}
+		.box ul li span:nth-child(2){
+			top:360px;
+			background-image: url(images/2.png);
+			transform-origin:top;
+			transform:translateZ(180px) rotateX(-90deg);
+		}
+		.box ul li span:nth-child(3){
+			background-image: url(images/3.png);
+			transform:translateZ(180px);
+		}
+		.box ul li span:nth-child(4){
+			background-image: url(images/4.png);
+			transform:translateZ(-180px) rotateX(180deg);
+		}
+/*		.box:hover li{*/
+/*			transform:translateZ(-180px) rotateX(180deg);*/
+/*		}*/
+/*		.box ul li:nth-child(1) span{background-position: 0 0;}*/
+/*		.box ul li:nth-child(2) span{background-position: -200px 0;}*/
+/*		.box ul li:nth-child(3) span{background-position: -400px 0;}*/
+/*		.box ul li:nth-child(4) span{background-position: -600px 0;}*/
+/*		.box ul li:nth-child(1){transition:1s 0s;}*/
+/*		.box ul li:nth-child(2){transition:1s .2s;}*/
+/*		.box ul li:nth-child(3){transition:1s .4s;}*/
+/*		.box ul li:nth-child(4){transition:1s .6s;}*/
+		.btn{
+			position:absolute;
+			right:10px;
+			bottom:10px;
+			width:120px;
+			height:20px;
+		}
+		.btn ul li{
+			float:left;
+			margin-right:10px;
+			list-style:none;
+			width:20px;
+			height:20px;
+			background-color: #000;
+			color:#fff;
+			text-align:center;
+			line-height:20px;
+			border-radius:50%;
+			cursor:pointer;
+		}
+		.dv{
+			width:300px;
+			margin:auto;
+			font-size:15px;
+		}
+		input{
+			width:50px;
+			height:30px;
+			font-size:20px;
+			border-radius:5px;
+			border:1px solid #ccc;
+		}
+		button{
+			width:60px;
+			height:30px;
+			font-size:16px;
+			border-radius:5px;
+			outline:0;
+			text-align:center;
+			line-height:28px;
+		}
+		.dv span{
+			color:#aaa;
+			font-size:12px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="banner">
+		<div class="box">
+			<ul>
+			</ul>
+		</div>
+		<div class="btn">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</div>
+	<div class='dv'>
+		<input type="text">个块旋转&emsp; 
+		 <button>确定</button>
+		 <span>请输入数字</span>
+	</div>
+	<script src='images/jquery.js'></script>
+	<script src='aa.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
