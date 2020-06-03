@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/banner.css">
+</head>
+<body>
+	<div id = 'dvv'>
+		<video src="fonts/1.mp4" autoplay='autoplay' loop = 'loop' height="1400px" style = 'overflow-y:hidden;overflow-x:hidden;'></video>
+	</div>
+	<div id = 'box'>
+		<img src="images/right_1.png" alt="" id = 'imgs1'>
+		<img src="images/left_1.png" alt="" id = 'imgs2'>
+		<img src="images/top_1.png" alt="" id = 'imgs3'>
+		<img src="images/bottom_1.png" alt="" id = 'imgs4'>
+		<img src="images/9.png" alt="" id = 'imgs5' onclick = 'document.getElementById("dvv").style.display="block"'>
+		<div id = 'dv1'>
+			<ul id = 'uls'>
+				<li>前言</li>
+				<li>基本信息</li>
+				<li>随便聊聊</li>
+				<li>初入前端</li>
+				<li>关于我们</li>
+				<li id = 'uls5'>就这样吧</li>
+				<li>那一年</li>
+				<li>那一天</li>
+				<li>那一夜</li>
+			</ul>
+		</div>
+		<div id = 'dv2'>
+			<ol id = 'ols'>
+				<li class="lis0">
+					<!-- <div id = 'fonts0'></div>
+					<div class="fonts1">112345678</div> -->
+					<img src="images/2.png" alt="" style='width:1000px;height:600px;'>
+				</li>
+				<li class = 'lis1'>
+					<div class = 'next1'>
+						<div class = 'header1'>
+							<i>基本信息</i>
+						</div>
+						<div>
+							<img src="images/3.jpg" alt="">
+						</div>
+						<div>
+							<table border = '0' cellspacing = '0'>
+								<tr>
+									<td>姓名：&emsp;<b>王辉</b></td>
+									<td>单身：&emsp;<b>是的</b></td>
+								</tr>
+								<tr class="tr1">
+									<td>生日：&emsp;<b>93-01-23</b></td>
+									<td>星座：&emsp;<b>水瓶座</b></td>
+								</tr>
+								<tr>
+									<td>身高：&emsp;<b>170cm</b></td>
+									<td>体重：&emsp;<b>66kg</b></td>
+								</tr>
+								<tr class="tr1">
+									<td>来自：&emsp;<b>湖北</b></td>
+									<td>学历：&emsp;<b>自考中</b></td>
+								</tr>
+								<tr>
+									<td>QQ：&emsp;<b>151681931</b></td>
+									<td>微信：&emsp;<b>185 8857 0123</b></td>
+								</tr>
+								<tr class ='tr1'>
+									<td style='width:410px;'>性格：&emsp;<b>退可两耳不闻窗外事，进可提枪上马斩千军</b></td>
+								</tr>
+								<tr>
+									<td colspan = '2' style='width:410px;'>爱好：&emsp;<b>飙车、看电影、宅在家里</b></td>
+								</tr>
+								<tr class="tr1">
+									<td colspan = '2' style='width:410px;'>写点啥：&emsp;<b>就写这个吧</b></td>
+								</tr>
+							</table>
+						</div>
+					</div>					
+				</li>
+				<li class="lis2 lis1">
+					<div class="next2">
+						<div class="banner" id="banner2">
+							<div class="banner-view"></div>
+							<div class="banner-btn"></div>
+							<div class="banner-number"></div>
+							<div class="banner-progres"></div>
+						</div>
+						<script type="text/javascript" src="js/banner.js"></script>
+						<script type="text/javascript">
+							var banenr2 = new FragmentBanner({
+								container : "#banner2",//选择容器 必选
+								imgs : ['images/a1.png','images/a2.png','images/a3.png','images/a4.png','images/a5.png'],//图片集合 
+							});
+						</script>
+					</div>
+				</li>
+				<li class="lis3 lis1">
+					<div class = 'header1'>
+						<i>初入前端</i>
+					</div>
+					<div class="teacher">
+						<div class = 'teachers'>
+
+							<div class="tech" style = 'float: left;' id = 'tech6'>
+								<div class="tech1" id = 'tech5'>
+									<div class = 'hhh'>
+										<img src="images/b2.png" alt=""><br>
+										<i class="iis">张 明</i>
+										<i>项目主管</i>
+										<i>东北汉子</i>
+										<i>才华横飞</i>
+										<i>气宇轩昂</i>
+									</div>
+									<img src="images/7.png" alt="" id = 'tech2'>
+								</div>
+							</div>
+
+							<div class="tech">
+								<div class="tech1" id = 'tech8'>
+									<div class = 'hhh'>
+										<img src="images/b1.png" alt=""><br>
+										<i class="iis">阮 思 敏</i>
+										<i>职业顾问</i>
+										<i>本地姑娘</i>
+										<i>温文尔雅</i>
+										<i>秀外惠中</i>
+									</div>
+									<img src="images/6.png" alt="" id = 'tech3'>
+								</div>
+							</div>
+
+							<div class="tech" style = 'float: right;'>
+								<div class="tech1" id = 'tech7'>
+									<div class = 'hhh'>
+										<img src="images/b3.png" alt=""><br>
+										<i class="iis">李 东 伟</i>
+										<i>教学主管</i>
+										<i>广东汉子</i>
+										<i>风度偏偏</i>
+										<i>一表人才</i>
+									</div>
+									<img src="images/8.png" alt="" id = 'tech4'>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</li>
+				<li class="lis4 lis1">
+					<div class = 'header1'>
+						<i>关于我们</i>
+					</div>
+
+					<div class = 'wenti a1'>
+						<div class = 'wenti1'>1、为什么会选择<b>达内</b>......</div>
+						<div id = 'hidden1'></div>
+					</div>
+					<div class = 'daan b1'>
+						<p id ='daan1' class = 'daan1'></p>
+					</div>
+
+
+					<div class = 'wenti a2'>
+						<div class = 'wenti1'>2、来<b>达内</b>学习的目标在哪里......</div>
+						<div id = 'hidden2'></div>
+					</div>
+					<div class = 'daan b2'>
+						<p id ='daan2' class = 'daan1'></p>
+					</div>
+
+
+					<div class = 'wenti a3'>
+						<div class = 'wenti1'>3、从<b>达内</b>出去后的想法......</div>
+						<div id = 'hidden3'></div>
+					</div>
+					<div class = 'daan b3'>
+						<p id ='daan3' class = 'daan1'></p>
+					</div>
+					<img src="images/b.png" alt="" class="s1 ss">
+					<img src="images/b.png" alt="" class="s2 ss">
+					<img src="images/b.png" alt="" class="s3 ss">
+					<img src="images/b.png" alt="" class="s4 ss">
+					<img src="images/b.png" alt="" class="s5 ss">
+					<img src="images/b.png" alt="" class="s6 ss">
+					<img src="images/b.png" alt="" class="s7 ss">
+					<img src="images/b.png" alt="" class="s8 ss">
+					<img src="images/b.png" alt="" class="s9 ss">
+					<img src="images/b.png" alt="" class="s10 ss">
+					<img src="images/b.png" alt="" class="s11 ss">
+					<img src="images/b.png" alt="" class="s12 ss">
+					<img src="images/b.png" alt="" class="s13 ss">
+					<img src="images/b.png" alt="" class="s14 ss">
+					<img src="images/b.png" alt="" class="s15 ss">
+				</li>
+				<li class = 'lis5' id = 'lis5'>
+					<div class = 'nexts nexts1' id = 'nextss'>
+						<i class = 'i1 i2'>学</i>
+						<i class = 'i1 i3'>如</i>
+						<i class = 'i1 i2'>逆</i>
+						<i class = 'i1 i3'>水</i>
+						<i class = 'i1 i2'>行</i>
+						<i class = 'i1 i3'>舟</i>
+						<i class = 'i1 i2'>不</i>
+						<i class = 'i1 i3'>进</i>
+						<i class = 'i1 i2'>则</i>
+						<i class = 'i1 i3'>退</i>
+					</div>
+					<div class = 'nexts nexts2' id = 'nextsss'>
+						<i class = 'i1 i2'>心</i>
+						<i class = 'i1 i3'>似</i>
+						<i class = 'i1 i2'>平</i>
+						<i class = 'i1 i3'>原</i>
+						<i class = 'i1 i2'>跑</i>
+						<i class = 'i1 i3'>马</i>
+						<i class = 'i1 i2'>易</i>
+						<i class = 'i1 i3'>放</i>
+						<i class = 'i1 i2'>难</i>
+						<i class = 'i1 i3'>收</i>
+					</div>
+					
+					<iframe src="js/index.html" width="1000px" height="600px" scrolling="no" frameborder="0"> </iframe>
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</div>
+
+	<script src="js/script.js"></script>
+
+</body>
+</html>
